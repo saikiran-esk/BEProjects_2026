@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: irrigation-system
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn irrigation.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: irrigation.settings
